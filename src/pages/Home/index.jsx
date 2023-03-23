@@ -1,0 +1,22 @@
+import { Box, Flex, useDisclosure } from "@chakra-ui/react";
+import { RegisterMessage } from "../../components/RegisterMessage";
+import { RegisterForm } from "../../components/RegisterForm";
+
+export function Home() {
+    const { isOpen, onToggle } = useDisclosure();
+
+    return (
+        <Flex
+            align="center"
+            justify="center"
+            w="100%"
+            h="100%"
+            mt={isOpen ? "10%" : "20%"}
+            direction="column"
+            rowGap="30px"
+        >
+            <RegisterMessage onClick={onToggle} isOpen={isOpen} />
+            <RegisterForm onClick={onToggle} isOpen={isOpen} />
+        </Flex>
+    );
+}
