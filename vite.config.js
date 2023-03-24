@@ -5,11 +5,11 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
     plugins: [react()],
     server: {
-        index: "/public/index.html",
+        index: "./public/index.html",
     },
     build: {
         rollupOptions: {
-            input: "/public/index.html",
+            input: "./public/index.html",
         },
     },
 });
