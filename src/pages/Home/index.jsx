@@ -1,6 +1,6 @@
 import { Box, Flex, useDisclosure } from "@chakra-ui/react";
 import { RegisterMessage } from "../../components/RegisterMessage";
-import { RegisterForm } from "../../components/RegisterForm";
+import { AuthForm } from "../../components/AuthForm";
 
 export function Home() {
     const { isOpen, onToggle } = useDisclosure();
@@ -16,7 +16,7 @@ export function Home() {
             rowGap="30px"
         >
             <RegisterMessage onClick={onToggle} isOpen={isOpen} />
-            <RegisterForm onClick={onToggle} isOpen={isOpen} />
+            <AuthForm onClick={onToggle} isOpen={isOpen} />
         </Flex>
     );
 }

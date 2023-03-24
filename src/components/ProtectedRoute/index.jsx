@@ -3,9 +3,9 @@ import cookies from "cookie-handler";
 
 export function ProtectedRoute() {
     const checkIfTokenExist = () => {
-        const token = cookies.get("token");
+        const token = localStorage.getItem("token");
         let tokenExist = true;
-        if (token === null) tokenExist = false;
+        if (!token) tokenExist = false;
         return tokenExist;
     };
 
