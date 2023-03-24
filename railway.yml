@@ -3,4 +3,7 @@ static_build:
     path: .
     routes:
         - route: "/*"
-          serve: "index.html"
+          headers:
+              cache-control: "public, max-age=0, must-revalidate"
+          return: 302
+          location: /
