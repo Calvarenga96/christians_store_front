@@ -1,0 +1,6 @@
+static_build:
+    type: static_build
+    path: public
+    routes:
+        - route: "/*"
+          serve: "index.html"
