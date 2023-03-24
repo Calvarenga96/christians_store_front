@@ -1,5 +1,4 @@
 import { Navigate, Outlet } from "react-router-dom";
-import cookies from "cookie-handler";
 
 export function ProtectedRoute() {
     const checkIfTokenExist = () => {
