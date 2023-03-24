@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const devMode = import.meta.env.VITE_DEV_MODE;
+
 const baseURL =
-    import.meta.env.VITE_DEV_MODE === "dev"
+    devMode === "dev"
         ? "http://localhost:8000/api/v1"
         : "https://christiansstoreback-production.up.railway.app/api/v1";
 
