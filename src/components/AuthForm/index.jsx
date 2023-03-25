@@ -74,7 +74,7 @@ export function AuthForm({ isOpen, onClick }) {
                         ? await axios.post("/register", data)
                         : await axios.post("/login", data);
 
-                const dataUser = response?.data?.user;
+                const dataUser = response?.user;
                 const token = dataUser?.token;
 
                 setUser(dataUser);
