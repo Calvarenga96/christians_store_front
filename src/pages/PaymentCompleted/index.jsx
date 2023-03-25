@@ -11,17 +11,17 @@ const uri =
 export function PaymentCompleted() {
     const { docId } = useContext(DataContext);
 
-    useEffect(() => {
-        const socket = io(uri, {
-            withCredentials: false,
-        });
+    // useEffect(() => {
+    //     const socket = io(uri, {
+    //         withCredentials: false,
+    //     });
 
-        socket.emit("subscribe", "chat");
+    //     socket.emit("subscribe", "chat");
 
-        socket.on("message", (data) => {
-            console.log(data.message);
-        });
-    }, []);
+    //     socket.on("message", (data) => {
+    //         console.log(data.message);
+    //     });
+    // }, []);
 
     return <div>PaymentCompleted</div>;
 }
