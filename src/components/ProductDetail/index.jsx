@@ -42,6 +42,7 @@ export function ProductDetail() {
 
             window.open(payUrl);
         } catch (error) {
+            console.log(error);
             toast({
                 title: error.response.data,
                 status: "error",
