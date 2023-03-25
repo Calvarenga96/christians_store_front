@@ -21,6 +21,7 @@ export function Store() {
             <Flex
                 mt="30px"
                 px={10}
+                pb={10}
                 justify="center"
                 align="center"
                 direction="column"

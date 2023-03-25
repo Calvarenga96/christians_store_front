@@ -10,7 +10,7 @@ export function Payment() {
                 <Heading>Detalles del Producto</Heading>
             </Center>
 
-            <SimpleGrid columns={[1, 2, 2]} spacing={10}>
+            <SimpleGrid columns={[1, 2, 2]} spacing={10} pb={10}>
                 <Flex align="center" justify="center">
                     <ProductCardConfirmPay />
                 </Flex>

@@ -1,7 +1,6 @@
 import { Button, Box, Image, Badge } from "@chakra-ui/react";
 
 export function ProductCard({ product, handleClick }) {
-    console.log(product);
     return (
         <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
             <Image src={product?.image} alt={product?.title} />

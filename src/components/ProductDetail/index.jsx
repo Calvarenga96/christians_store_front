@@ -18,7 +18,7 @@ import { DataContext } from "../../context/DataContext";
 import axios from "../../axios/config";
 
 export function ProductDetail() {
-    const { productToBuy } = useContext(DataContext);
+    const { productToBuy, user } = useContext(DataContext);
     const [cip, setCip] = useState("");
     const [isError, setIsError] = useState(false);
     const toast = useToast();
@@ -26,11 +26,10 @@ export function ProductDetail() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (cip === "") {
-            return setIsError(true);
-        }
+        if (cip === "") return setIsError(true);
 
         const data = {
+            userId: user.id,
             value: productToBuy.price.toString().replace(".", ""),
             description: productToBuy.title,
             cip,

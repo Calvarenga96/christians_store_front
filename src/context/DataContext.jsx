@@ -10,6 +10,7 @@ export const DataProvider = ({ children }) => {
     const [messageModal, setMessageModal] = useState("");
     const [user, setUser] = useState({});
     const [productToBuy, setProductToBuy] = useState([]);
+    const [docId, setDocId] = useState("");
 
     const value = {
         typeOfAuthForm,
@@ -23,6 +24,8 @@ export const DataProvider = ({ children }) => {
         setMessageModal,
         productToBuy,
         setProductToBuy,
+        docId,
+        setDocId,
     };
 
     return (

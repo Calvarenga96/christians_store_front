@@ -3,7 +3,6 @@ import axios from "../axios/config";
 
 export function useProducts() {
     const [products, setProducts] = useState([]);
-    const [productToBuy, setProductToBuy] = useState([]);
 
     const getProducts = async () => {
         const products = await axios.get(
