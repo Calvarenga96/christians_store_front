@@ -40,6 +40,8 @@ export function ProductDetail() {
             const response = await axios.post("/create-debt", data);
             const payUrl = response?.data?.response?.debt?.payUrl;
 
+            console.log(response);
+            return;
             window.open(payUrl);
         } catch (error) {
             console.log(error);
