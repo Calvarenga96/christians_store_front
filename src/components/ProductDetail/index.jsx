@@ -59,7 +59,7 @@ export function ProductDetail() {
             p={5}
         >
             <Text as="b">Costo Total:</Text>{" "}
-            <Text>{productToBuy?.price.toString().replace(".", "")} Gs.</Text>
+            <Text>{productToBuy?.price?.toString().replace(".", "")} Gs.</Text>
             <br />
             <br />
             <form onSubmit={handleSubmit}>
