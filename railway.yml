@@ -1,9 +1,0 @@
-static_build:
-    type: static_build
-    path: .
-    routes:
-        - route: "/*"
-          headers:
-              cache-control: "public, max-age=0, must-revalidate"
-          return: 302
-          location: /
