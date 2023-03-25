@@ -95,7 +95,7 @@ export function AuthForm({ isOpen, onClick }) {
                 setPassword("");
             } catch (error) {
                 toast({
-                    title: error.response.data.message,
+                    title: error.response.message,
                     status: "error",
                     isClosable: true,
                 });
