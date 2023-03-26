@@ -18,7 +18,7 @@ import { DataContext } from "../../context/DataContext";
 import axios from "../../axios/config";
 
 export function ProductDetail() {
-    const { productToBuy, user } = useContext(DataContext);
+    const { productToBuy, user, setUser } = useContext(DataContext);
     const [cip, setCip] = useState("");
     const [isError, setIsError] = useState(false);
     const toast = useToast();
@@ -27,6 +27,8 @@ export function ProductDetail() {
         e.preventDefault();
 
         if (cip === "") return setIsError(true);
+
+        setUser((prevData) => ({ ...prevData, cip }));
 
         const data = {
             userId: user.id,

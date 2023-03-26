@@ -94,15 +94,23 @@ export function AuthForm({ isOpen, onClick }) {
                 setEmail("");
                 setPassword("");
             } catch (error) {
+                console.log(error);
                 toast({
                     title:
-                        error?.message ||
+                        error?.response?.data?.message ||
                         "Ha habido un problema para ingresar a tu cuenta",
                     status: "error",
                     isClosable: true,
                 });
             }
         }
+    };
+
+    const handleClick = () => {
+        setName("");
+        setEmail("");
+        setPassword("");
+        onClick();
     };
 
     return (
@@ -186,7 +194,7 @@ export function AuthForm({ isOpen, onClick }) {
                             </FormControl>
 
                             <Flex justify="space-between">
-                                <Button type="button" onClick={onClick}>
+                                <Button type="button" onClick={handleClick}>
                                     Volver atrás
                                 </Button>
                                 <Button type="submit" colorScheme="teal">
