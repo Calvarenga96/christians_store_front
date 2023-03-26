@@ -74,7 +74,7 @@ export function AuthForm({ isOpen, onClick }) {
                         ? await axios.post("/register", data)
                         : await axios.post("/login", data);
 
-                const dataUser = response?.user;
+                const dataUser = response?.data?.user;
                 const token = dataUser?.token;
 
                 setUser(dataUser);
@@ -95,7 +95,9 @@ export function AuthForm({ isOpen, onClick }) {
                 setPassword("");
             } catch (error) {
                 toast({
-                    title: error.response.message,
+                    title:
+                        error?.message ||
+                        "Ha habido un problema para ingresar a tu cuenta",
                     status: "error",
                     isClosable: true,
                 });
