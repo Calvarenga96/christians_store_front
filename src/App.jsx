@@ -14,11 +14,11 @@ function App() {
                 <Route element={<ProtectedRoute />}>
                     <Route path="/store" element={<Store />} />
                     <Route path="/payment" element={<Payment />} />
+                    <Route
+                        path="/payments-completed"
+                        element={<PaymentsCompleted />}
+                    />
                 </Route>
-                <Route
-                    path="/payments-completed"
-                    element={<PaymentsCompleted />}
-                />
             </Routes>
         </BrowserRouter>
     );

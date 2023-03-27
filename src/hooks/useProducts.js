@@ -3,8 +3,10 @@ import axios from "../axios/config";
 
 export function useProducts() {
     const [products, setProducts] = useState([]);
+    const [spinner, setSpinner] = useState(false);
 
     const getProducts = async () => {
+        setSpinner(true);
         const products = await axios.get(
             "https://fakestoreapi.com/products?limit=10",
             {
@@ -12,6 +14,7 @@ export function useProducts() {
             }
         );
         setProducts(products?.data);
+        setSpinner(false);
     };
 
     useEffect(() => {
@@ -20,5 +23,7 @@ export function useProducts() {
 
     return {
         products,
+        spinner,
+        setSpinner,
     };
 }
