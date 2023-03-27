@@ -10,6 +10,26 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+
+  <script type="module">
+    import Echo from "laravel-echo";
+    import Pusher from "pusher-js";
+
+    window.Pusher = Pusher;
+
+    window.Echo = new Echo({
+      broadcaster: "pusher",
+      key: import.meta.env.VITE_PUSHER_APP_KEY,
+      cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
+      forceTLS: true,
+    });
+
+    const channel = window.Echo.channel("websocket");
+
+    channel.listen("PaymentStatusUpdated", (data) => {
+      console.log(data);
+    });
+  </script>
 </body>
 
 </html>
