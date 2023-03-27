@@ -24,12 +24,16 @@ export function RegisterMessage({ onClick, isOpen }) {
                     direction="column"
                     rowGap="30px"
                 >
-                    <Heading>¡Bienvenido a Christian's Store!</Heading>
+                    <Flex direction="column">
+                        <Heading textAlign="center">
+                            ¡Bienvenido a Christian's Store!
+                        </Heading>
 
-                    <Text fontSize="2xl">
-                        Para poder continuar, necesitas registrarte o iniciar
-                        sesión
-                    </Text>
+                        <Text fontSize="2xl" textAlign="center">
+                            Para poder continuar, necesitas registrarte o
+                            iniciar sesión
+                        </Text>
+                    </Flex>
 
                     <Flex columnGap={5}>
                         <Button

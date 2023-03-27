@@ -117,7 +117,7 @@ export function AuthForm({ isOpen, onClick }) {
         <>
             {isOpen && (
                 <Fade in={isOpen}>
-                    <Text fontSize="2xl" mb={5}>
+                    <Text fontSize="2xl" mb={5} textAlign="center">
                         Por favor, llena el formulario con tus datos para{" "}
                         {typeOfAuthForm === "register"
                             ? "registrarte"
@@ -193,7 +193,7 @@ export function AuthForm({ isOpen, onClick }) {
                                 )}
                             </FormControl>
 
-                            <Flex justify="space-between">
+                            <Flex justify="space-between" columnGap={5}>
                                 <Button type="button" onClick={handleClick}>
                                     Volver atrás
                                 </Button>

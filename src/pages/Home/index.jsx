@@ -24,6 +24,7 @@ export function Home() {
         <Flex
             align="center"
             justify="center"
+            p={10}
             w="100%"
             h="100%"
             mt={isOpen ? "10%" : "20%"}
