@@ -16,7 +16,7 @@ export function Home() {
 
         if (docId !== null) {
             setDocId(docId);
-            navigate("payments-completed");
+            navigate("/payments-completed");
         }
     }, []);
 

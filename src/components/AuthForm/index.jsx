@@ -61,6 +61,7 @@ export function AuthForm({ isOpen, onClick }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const fieldsAreOk = checkFields();
+
         if (fieldsAreOk) {
             const data = {
                 name: typeOfAuthForm === "register" ? name : undefined,
@@ -75,9 +76,11 @@ export function AuthForm({ isOpen, onClick }) {
                         : await axios.post("/login", data);
 
                 const dataUser = response?.data?.user;
+                const userId = dataUser.id;
                 const token = dataUser?.token;
 
                 setUser(dataUser);
+                localStorage.setItem("userId", userId);
                 localStorage.setItem("token", token);
 
                 if (typeOfAuthForm === "register") {

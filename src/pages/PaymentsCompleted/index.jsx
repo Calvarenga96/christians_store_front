@@ -18,16 +18,9 @@ export function PaymentsCompleted() {
     const [debts, setDebts] = useState([]);
 
     const getDebts = async () => {
-        const debts = await axios.get(
-            "https://staging.adamspay.com/api/v1/debts?page=3",
-            {
-                headers: {
-                    apikey: import.meta.env.VITE_ADAMS_API_KEY,
-                },
-                withCredentials: false,
-            }
-        );
-        setDebts(debts?.data?.debts);
+        const userId = localStorage.getItem("userId");
+        const debts = await axios.get(`/payments/${userId}`);
+        setDebts(debts?.data);
     };
 
     useEffect(() => {
@@ -54,17 +47,17 @@ export function PaymentsCompleted() {
                         </Thead>
 
                         <Tbody>
-                            {debts.map((debt, index) => (
-                                <Tr key={debt?.docId}>
+                            {debts?.map((debt, index) => (
+                                <Tr key={debt?.doc_id}>
                                     <Td>
                                         <Text>{index + 1}</Text>
                                     </Td>
                                     <Td>
-                                        <Text>{debt?.docId}</Text>
+                                        <Text>{debt?.doc_id}</Text>
                                     </Td>
                                     <Td>
                                         <Text>
-                                            {debt?.label?.substr(0, 50)}...
+                                            {debt?.product?.substr(0, 50)}...
                                         </Text>
                                     </Td>
                                     <Td>
@@ -74,7 +67,7 @@ export function PaymentsCompleted() {
                                         </Text>
                                     </Td>
                                     <Td>
-                                        <Text>{debt?.objStatus?.status}</Text>
+                                        <Text>{debt?.status}</Text>
                                     </Td>
                                 </Tr>
                             ))}

@@ -47,7 +47,6 @@ export function ProductDetail() {
             const payUrl = response?.data?.response?.debt?.payUrl;
             window.open(payUrl);
         } catch (error) {
-            console.log(error);
             toast({
                 title: error.response.data,
                 status: "error",
