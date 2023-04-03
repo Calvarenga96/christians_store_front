@@ -97,7 +97,7 @@ export function AuthForm({ isOpen, onClick }) {
                 setEmail("");
                 setPassword("");
             } catch (error) {
-                console.log(error);
+                console.log(error?.message);
                 toast({
                     title:
                         error?.response?.data?.message ||
