@@ -101,7 +101,9 @@ export function AuthForm({ isOpen, onClick }) {
                 toast({
                     title:
                         error?.response?.data?.message ||
-                        "Ha habido un problema para ingresar a tu cuenta",
+                        typeOfAuthForm === "register"
+                            ? "Ha habido un problema para crear tu cuenta"
+                            : "Ha habido un problema para ingresar a tu cuenta",
                     status: "error",
                     isClosable: true,
                 });
