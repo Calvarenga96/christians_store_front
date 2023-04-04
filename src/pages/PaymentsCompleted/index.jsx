@@ -10,6 +10,7 @@ import {
     Heading,
     Box,
     Text,
+    Button,
 } from "@chakra-ui/react";
 import axios from "../../axios/config";
 import { Header } from "../../components/Header";
@@ -43,6 +44,7 @@ export function PaymentsCompleted() {
                                 <Th>Producto</Th>
                                 <Th>Precio</Th>
                                 <Th>Estado</Th>
+                                <Th>Acciones</Th>
                             </Tr>
                         </Thead>
 
@@ -65,6 +67,13 @@ export function PaymentsCompleted() {
                                     </Td>
                                     <Td>
                                         <Text>{debt?.status}</Text>
+                                    </Td>
+                                    <Td>
+                                        {debt?.status === "pending" ? (
+                                            <Button>Pagar</Button>
+                                        ) : (
+                                            <Text>Ya Abonado</Text>
+                                        )}
                                     </Td>
                                 </Tr>
                             ))}
