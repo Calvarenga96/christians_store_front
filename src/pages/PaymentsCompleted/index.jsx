@@ -14,14 +14,21 @@ import {
 } from "@chakra-ui/react";
 import axios from "../../axios/config";
 import { Header } from "../../components/Header";
+import { useNavigate } from "react-router-dom";
 
 export function PaymentsCompleted() {
     const [debts, setDebts] = useState([]);
+    const navigate = useNavigate();
 
     const getDebts = async () => {
         const userId = localStorage.getItem("userId");
         const debts = await axios.get(`/payments/${userId}`);
+        console.log(debts);
         setDebts(debts?.data);
+    };
+
+    const handleClik = (urlPayment) => {
+        window.open(urlPayment);
     };
 
     useEffect(() => {
@@ -70,9 +77,15 @@ export function PaymentsCompleted() {
                                     </Td>
                                     <Td>
                                         {debt?.status === "pending" ? (
-                                            <Button>Pagar</Button>
+                                            <Button
+                                                onClick={() =>
+                                                    handleClik(debt?.urlPayment)
+                                                }
+                                            >
+                                                Pagar
+                                            </Button>
                                         ) : (
-                                            <Text>Ya Abonado</Text>
+                                            <Text>Abonado</Text>
                                         )}
                                     </Td>
                                 </Tr>
