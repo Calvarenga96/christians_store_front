@@ -20,13 +20,14 @@ import axios from "../../axios/config";
 import { useProducts } from "../../hooks/useProducts";
 
 export function ProductDetail() {
-    const { productToBuy, user, setUser } = useContext(DataContext);
+    const { productToBuy, setUser } = useContext(DataContext);
     const { spinner, setSpinner } = useProducts();
     const [cip, setCip] = useState("");
     const [isError, setIsError] = useState(false);
     const toast = useToast();
 
     const handleSubmit = async (e) => {
+        const userId = localStorage.getItem("userId");
         setSpinner(true);
         e.preventDefault();
 
@@ -35,7 +36,7 @@ export function ProductDetail() {
         setUser((prevData) => ({ ...prevData, cip }));
 
         const data = {
-            userId: user.id,
+            userId,
             value: productToBuy.price.toString().replace(".", ""),
             description: productToBuy.title,
             cip,
