@@ -62,8 +62,7 @@ export function PaymentsCompleted() {
                                     </Td>
                                     <Td>
                                         <Text>
-                                            {debt?.amount?.value.split(".")[0]}{" "}
-                                            Gs.
+                                            {debt?.value.split(".")[0]} Gs.
                                         </Text>
                                     </Td>
                                     <Td>
